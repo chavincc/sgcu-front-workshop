@@ -10,19 +10,11 @@ const User = ({ ...props }) => {
   const userId = props.match.params.id;
 
   useEffect(() => {
-    (async () => {
-      // ***TODO : get user data
-      const response = await axios.get(`${SERVICE_DOMAIN}/users/${userId}`);
-      setOnMountItem([response.data]);
-    })();
+    // ***TODO : get user data
   }, [userId]);
 
   const handleOnEventItem = async () => {
     // ***TODO : get user post
-    const response = await axios.get(
-      `${SERVICE_DOMAIN}/posts?userId=${userId}`
-    );
-    setOnEventItem(response.data);
   };
 
   return (
