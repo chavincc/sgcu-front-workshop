@@ -15,9 +15,7 @@
 .list {
   padding: 1rem;
   border-radius: 5px;
-  -webkit-box-shadow: 2px 3px 20px -4px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 3px 20px -4px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 3px 20px -4px rgba(0, 0, 0, 0.75);
+  border: 1px solid rgb(59, 59, 59);
 }
 
 .list-item {
@@ -35,6 +33,10 @@ button {
   border-radius: 5px;
   border: 1px solid rgb(129, 129, 129);
   outline: none;
+  -webkit-box-shadow: 2px 3px 10px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 3px 10px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 3px 10px -4px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
 }
 button:hover {
   background: rgb(240, 240, 240);
