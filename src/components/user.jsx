@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const SERVICE_DOMAIN = 'https://jsonplaceholder.typicode.com/';
+const SERVICE_DOMAIN = 'https://jsonplaceholder.typicode.com';
 
 const User = ({ ...props }) => {
   const [onMountItem, setOnMountItem] = useState([]);
@@ -12,11 +12,17 @@ const User = ({ ...props }) => {
   useEffect(() => {
     (async () => {
       // ***TODO : get user data
+      const response = await axios.get(`${SERVICE_DOMAIN}/users/${userId}`);
+      setOnMountItem([response.data]);
     })();
-  }, []);
+  }, [userId]);
 
   const handleOnEventItem = async () => {
     // ***TODO : get user post
+    const response = await axios.get(
+      `${SERVICE_DOMAIN}/posts?userId=${userId}`
+    );
+    setOnEventItem(response.data);
   };
 
   return (
@@ -31,7 +37,7 @@ const User = ({ ...props }) => {
         </div>
       </div>
       <div className="card" id="on-event">
-        <button onClick={handleOnEventItem}>show post</button>
+        <button onClick={handleOnEventItem}>show user's post</button>
         <div className="list">
           {onEventItem.map((item) => (
             <div className="list-item" key={`list-post-${item.id}`}>
